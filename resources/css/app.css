@@ -1,3 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    overflow-x: hidden;
+}
+
+thead tr th {
+    @apply p-3 font-semibold font-pop uppercase bg-gradient-to-t from-blue-400 via-blue-500 to-blue-700 text-white border-2 border-white hidden lg:table-cell;
+}
+
+tbody tr td {
+    @apply w-full lg:w-auto font-pop py-3 pl-20 lg:pl-0 text-gray-800 text-center border border-b block lg:table-cell relative lg:static;
+}
+
+tbody tr td span {
+    @apply lg:hidden flex absolute h-full w-20 top-0 left-0 items-center justify-center bg-gradient-to-t from-blue-400 via-blue-500 to-blue-700 text-white text-xs font-bold uppercase;
+}
+
+.content-alignment,
+.content-alignment-list,
+.content-alignment-home {
+    position: absolute;
+    top: calc(50% + 34px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content-alignment-home {
+    display: flex;
+    width: 90%;
+    height: 40vh;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+/*<|-Styles For Responsive Design-|>*/
+@media screen and (max-width: 1023px) {
+    .show-menu {
+        display: flex;
+    }
+
+    .hide-menu {
+        position: absolute;
+    }
+
+    .content-alignment-list {
+        position: absolute;
+        top: 50px;
+        transform: translate(-50%, 0%);
+    }
+
+    table {
+        position: relative;
+    }
+}
