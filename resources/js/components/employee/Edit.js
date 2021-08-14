@@ -30,6 +30,23 @@ const Edit = () => {
                         <div className="w-full px-3">
                             <label
                                 className="block uppercase font-pop tracking-wide text-blue-700 text-base font-medium mb-2"
+                                htmlFor="email"
+                            >
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                name="email"
+                                className="appearance-none block w-full font-pop bg-gray-200 text-gray-700 border border-gray-200 rounded-lg font-normal py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="email"
+                                placeholder="JoeDoe@example.com"
+                            />
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap -mx-3 mb-3">
+                        <div className="w-full px-3">
+                            <label
+                                className="block uppercase font-pop tracking-wide text-blue-700 text-base font-medium mb-2"
                                 htmlFor="country"
                             >
                                 Country

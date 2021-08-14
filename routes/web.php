@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\Services\EmployeeServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// * Views Routes.
 Route::get('/', [EmployeeController::class, "index"]);
 Route::get("/employee/list", [EmployeeController::class, "index"]);
 Route::get("/employee/create", [EmployeeController::class, "index"]);
 Route::get("/employee/edit", [EmployeeController::class, "index"]);
 
-
+// * Services Routes.
+Route::post('/create', [EmployeeServicesController::class, "create"]);
 
