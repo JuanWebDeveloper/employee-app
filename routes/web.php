@@ -23,4 +23,5 @@ Route::get("/employee/edit", [EmployeeController::class, "index"]);
 
 // * Services Routes.
 Route::post('/create', [EmployeeServicesController::class, "create"]);
+Route::get('/list', [EmployeeServicesController::class, "list"]);
 

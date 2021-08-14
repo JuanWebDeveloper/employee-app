@@ -111,7 +111,7 @@ const Create = () => {
                                         setRol(event.target.value)
                                     }
                                 >
-                                    <option selected>Choose</option>
+                                    <option>Choose</option>
                                     <option value="developer">Developer</option>
                                     <option value="designer">Designer</option>
                                     <option value="publicist">Publicist</option>
