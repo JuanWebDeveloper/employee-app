@@ -2546,7 +2546,7 @@ var List = function List() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "container mx-auto",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "content-alignment-list w-11/12 mt-5 lg:mt-0",
+      className: "content-alignment-list w-11/12 mt-5 lg:mt-10 lg:pb-10",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
         className: "text-center text-blue-700 font-pop font-semibold mb-6 mt-5 lg:mt-0 text-3xl lg:text-4xl",
         children: "List Of Employee"

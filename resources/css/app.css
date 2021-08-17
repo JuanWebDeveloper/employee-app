@@ -21,7 +21,6 @@ tbody tr td span {
 }
 
 .content-alignment,
-.content-alignment-list,
 .content-alignment-home {
     position: absolute;
     top: calc(50% + 34px);
@@ -38,6 +37,13 @@ tbody tr td span {
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
+.content-alignment-list {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
 /*<|-Styles For Responsive Design-|>*/
 @media screen and (max-width: 1023px) {
     .show-menu {
@@ -46,12 +52,6 @@ tbody tr td span {
 
     .hide-menu {
         position: absolute;
-    }
-
-    .content-alignment-list {
-        position: absolute;
-        top: 50px;
-        transform: translate(-50%, 0%);
     }
 
     table {

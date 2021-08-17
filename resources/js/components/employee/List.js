@@ -34,7 +34,7 @@ const List = () => {
 
     return (
         <div className="container mx-auto">
-            <div className="content-alignment-list w-11/12 mt-5 lg:mt-0">
+            <div className="content-alignment-list w-11/12 mt-5 lg:mt-10 lg:pb-10">
                 <h2 className="text-center text-blue-700 font-pop font-semibold mb-6 mt-5 lg:mt-0 text-3xl lg:text-4xl">
                     List Of Employee
                 </h2>
