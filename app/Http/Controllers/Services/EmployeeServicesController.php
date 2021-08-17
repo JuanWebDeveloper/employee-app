@@ -45,4 +45,49 @@ class EmployeeServicesController extends Controller
 
         return $response;
     }
+
+    // * Controller To Edit Employees.
+    public function edit($id) {
+        try {
+            $data = Employee::find($id); // * Retrieving Employee Data For Editing.
+
+            if ($data) {
+                $response['data']  = $data;
+                $response['message'] = "Load succesful";
+                $response['status'] = true;
+             } else {
+                $response['data']  = null;
+                $response['message'] = "Not found data id = $id";
+                $response['status'] = false;
+             }
+
+        } catch (\Exception $error) {
+            $response['message'] = $error->getMessage();
+            $response['status'] = false;
+        }
+
+        return $response;
+    }
+
+    // * Controller For Employee Update.
+    public function update(Request $request, $id) {
+        try {
+            $data["name"] = $request["name"];
+            $data["email"] = $request["email"];
+            $data["country"] = $request["country"];
+            $data["rol"] = $request["rol"];
+
+            $update = Employee::find($id)->update($data); // * Employee Data Update.
+
+            $response['response'] = $update;
+            $response['message'] = "Update successfull";
+            $response['status'] = true;
+
+        } catch (\Exception $error) {
+            $response['message'] = $error->getMessage();
+            $response['status'] = false;
+        }
+
+        return $response;
+    }
 }

@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string("email");
             $table->string("country");
             $table->string("rol");
+            $table->timestamps();
         });
     }
 

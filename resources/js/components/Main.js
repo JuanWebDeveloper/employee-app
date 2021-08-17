@@ -16,7 +16,7 @@ const Main = () => {
                 <Route path="/" exact component={Home} />
                 <Route path="/employee/list" exact component={List} />
                 <Route path="/employee/create" exact component={Create} />
-                <Route path="/employee/edit" exact component={Edit} />
+                <Route path="/employee/edit/:id" exact component={Edit} />
             </Switch>
         </BrowserRouter>
     );

@@ -1,6 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const Edit = () => {
+import EmployeeServices from "../../services/EmployeeServices";
+
+const Edit = (props) => {
+    const [id, setId] = useState(null);
+    const [name, setName] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [country, setCountry] = useState(null);
+    const [rol, setRol] = useState(null);
+
+    useEffect(() => {
+        async function fetchDateEmployee() {
+            // * Employee ID To Be Edit.
+            let id = props.match.params.id;
+
+            // * Service Request.
+            const response = await EmployeeServices.editEmployee(id);
+
+            if (response.status) {
+                const DATA = response.data; // * Employee Data.
+                setId(DATA.id);
+                setName(DATA.name);
+                setEmail(DATA.email);
+                setCountry(DATA.country);
+                setRol(DATA.rol);
+            } else {
+                console.log(response.message);
+            }
+        }
+
+        fetchDateEmployee();
+    }, []);
+
+    const updateEmployee = async () => {
+        console.log(name);
+        const data = {
+            id,
+            name,
+            email,
+            country,
+            rol,
+        };
+
+        // * Service Request.
+        const response = await EmployeeServices.updateEmployee(data);
+
+        if (response.status) {
+            alert(response.message);
+        } else {
+            alert(response.message);
+        }
+    };
+
     return (
         <div className="container mx-auto">
             <div className="content-alignment w-11/12 lg:w-2/5 lg:mt-0">
@@ -23,6 +74,10 @@ const Edit = () => {
                                 className="appearance-none block w-full font-pop bg-gray-200 text-gray-700 border border-gray-200 rounded-lg font-normal py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="name"
                                 placeholder="Joe Doe"
+                                value={name}
+                                onChange={(event) =>
+                                    setName(event.target.value)
+                                }
                             />
                         </div>
                     </div>
@@ -40,6 +95,10 @@ const Edit = () => {
                                 className="appearance-none block w-full font-pop bg-gray-200 text-gray-700 border border-gray-200 rounded-lg font-normal py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="email"
                                 placeholder="JoeDoe@example.com"
+                                value={email}
+                                onChange={(event) =>
+                                    setEmail(event.target.value)
+                                }
                             />
                         </div>
                     </div>
@@ -57,6 +116,10 @@ const Edit = () => {
                                 className="appearance-none block w-full font-pop bg-gray-200 text-gray-700 border border-gray-200 rounded-lg font-normal py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="country"
                                 placeholder="Colombia"
+                                value={country}
+                                onChange={(event) =>
+                                    setCountry(event.target.value)
+                                }
                             />
                         </div>
                     </div>
@@ -73,6 +136,10 @@ const Edit = () => {
                                     name="rol"
                                     className="block appearance-none w-full font-pop bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-lg font-normal leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="rol"
+                                    value={rol}
+                                    onChange={(event) =>
+                                        setRol(event.target.value)
+                                    }
                                 >
                                     <option value="developer">Developer</option>
                                     <option value="designer">Designer</option>
@@ -95,6 +162,7 @@ const Edit = () => {
                             type="submit"
                             className="font-pop text-base font-medium px-10 py-2 rounded-lg cursor-pointer text-white bg-gradient-to-t from-blue-400 via-blue-500 to-blue-700"
                             value="Update"
+                            onClick={() => updateEmployee()}
                         />
                     </div>
                 </form>

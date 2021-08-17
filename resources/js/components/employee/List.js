@@ -65,7 +65,7 @@ const List = () => {
                                     <td>
                                         <span>Actions</span>
                                         <Link
-                                            to="/employee/edit"
+                                            to={`/employee/edit/${item.id}`}
                                             className="py-1 px-2 mx-1 text-white rounded-lg no-underline bg-blue-500"
                                         >
                                             Edit

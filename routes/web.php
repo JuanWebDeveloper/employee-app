@@ -19,9 +19,10 @@ use App\Http\Controllers\Services\EmployeeServicesController;
 Route::get('/', [EmployeeController::class, "index"]);
 Route::get("/employee/list", [EmployeeController::class, "index"]);
 Route::get("/employee/create", [EmployeeController::class, "index"]);
-Route::get("/employee/edit", [EmployeeController::class, "index"]);
+Route::get("/employee/edit/{id}", [EmployeeController::class, "index"]);
 
 // * Services Routes.
 Route::post('/create', [EmployeeServicesController::class, "create"]);
 Route::get('/list', [EmployeeServicesController::class, "list"]);
-
+Route::get('/edit/{id}', [EmployeeServicesController::class, "edit"]);
+Route::put('/update/{id}', [EmployeeServicesController::class, "update"]);
