@@ -2505,6 +2505,44 @@ var List = function List() {
 
     fetchEmployeeData();
   }, []);
+
+  var onClickDelete = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(i, id) {
+      var confirming, NEW_LIST, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              confirming = confirm("Are you sure to delete this item?");
+
+              if (!(confirming === true)) {
+                _context2.next = 9;
+                break;
+              }
+
+              NEW_LIST = listEmployee;
+              NEW_LIST.splice(i, 1);
+              setListEmployee(NEW_LIST);
+              _context2.next = 7;
+              return _services_EmployeeServices__WEBPACK_IMPORTED_MODULE_2__.default.deleteEmployee(id);
+
+            case 7:
+              response = _context2.sent;
+              response.status ? alert(response.message) : alert(response.message);
+
+            case 9:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function onClickDelete(_x, _x2) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "container mx-auto",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -2564,6 +2602,9 @@ var List = function List() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                   href: "#",
                   className: "py-1 px-2 mx-1 text-white rounded-lg no-underline bg-red-500",
+                  onClick: function onClick() {
+                    return onClickDelete(i, item.id);
+                  },
                   children: "Remove"
                 })]
               })]
@@ -2820,7 +2861,7 @@ employeeServices.editEmployee = /*#__PURE__*/function () {
   return function (_x2) {
     return _ref3.apply(this, arguments);
   };
-}(); // * Employee Update Service.
+}(); // * Employees Update Service.
 
 
 employeeServices.updateEmployee = /*#__PURE__*/function () {
@@ -2853,6 +2894,39 @@ employeeServices.updateEmployee = /*#__PURE__*/function () {
 
   return function (_x3) {
     return _ref4.apply(this, arguments);
+  };
+}(); //* Service To Delete Employees.
+
+
+employeeServices.deleteEmployee = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(id) {
+    var urlDelete, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            urlDelete = "".concat(URL, "/delete/").concat(id);
+            _context5.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().delete(urlDelete).then(function (response) {
+              return response.data; // * Controller Response.
+            })["catch"](function (error) {
+              return error;
+            });
+
+          case 3:
+            response = _context5.sent;
+            return _context5.abrupt("return", response);
+
+          case 5:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+
+  return function (_x4) {
+    return _ref5.apply(this, arguments);
   };
 }();
 

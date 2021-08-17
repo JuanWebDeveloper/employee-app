@@ -26,3 +26,4 @@ Route::post('/create', [EmployeeServicesController::class, "create"]);
 Route::get('/list', [EmployeeServicesController::class, "list"]);
 Route::get('/edit/{id}', [EmployeeServicesController::class, "edit"]);
 Route::put('/update/{id}', [EmployeeServicesController::class, "update"]);
+Route::delete('/delete/{id}', [EmployeeServicesController::class, "delete"]);

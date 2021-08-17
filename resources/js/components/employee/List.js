@@ -18,6 +18,20 @@ const List = () => {
         fetchEmployeeData();
     }, []);
 
+    const onClickDelete = async (i, id) => {
+        let confirming = confirm("Are you sure to delete this item?");
+
+        if (confirming === true) {
+            const NEW_LIST = listEmployee;
+            NEW_LIST.splice(i, 1);
+            setListEmployee(NEW_LIST);
+
+            const response = await EmployeeServices.deleteEmployee(id);
+
+            response.status ? alert(response.message) : alert(response.message);
+        }
+    };
+
     return (
         <div className="container mx-auto">
             <div className="content-alignment-list w-11/12 mt-5 lg:mt-0">
@@ -73,6 +87,9 @@ const List = () => {
                                         <a
                                             href="#"
                                             className="py-1 px-2 mx-1 text-white rounded-lg no-underline bg-red-500"
+                                            onClick={() =>
+                                                onClickDelete(i, item.id)
+                                            }
                                         >
                                             Remove
                                         </a>
